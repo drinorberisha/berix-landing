@@ -679,6 +679,68 @@ const ArchitectureTerminal = ({ isOpen, onClose }) => {
     );
 };
 
+// --- LOGO COMPONENT ---
+const BerixLogo = ({ className = "w-10 h-10" }) => {
+    const circuits = [];
+    const pseudoRandom = (seed) => {
+        let value = Math.sin(seed * 1.234) * 10000;
+        return value - Math.floor(value);
+    };
+
+    for (let i = 0; i < 60; i++) {
+        const angle = (i * (360 / 60)) * (Math.PI / 180);
+
+        // Skip angles that overlap with the text box (Center is 50,50, Text width is approx ~70, height is ~20)
+        if (Math.abs(angle - 0) < 0.4 || Math.abs(angle - Math.PI * 2) < 0.4) continue;
+        if (Math.abs(angle - Math.PI) < 0.4) continue;
+
+        const rand1 = pseudoRandom(i);
+        const rand2 = pseudoRandom(i + 100);
+
+        const innerRadius = 22 + rand1 * 5;
+        const outRadius1 = innerRadius + 8 + rand2 * 8;
+        const outRadius2 = outRadius1 + 5 + pseudoRandom(i + 200) * 10;
+
+        const sx = 50 + Math.cos(angle) * innerRadius;
+        const sy = 50 + Math.sin(angle) * innerRadius;
+
+        const bendAngle = Math.round(angle / (Math.PI / 8)) * (Math.PI / 8);
+
+        const mx = 50 + Math.cos(bendAngle) * outRadius1;
+        const my = 50 + Math.sin(bendAngle) * outRadius1;
+
+        const ex = 50 + Math.cos(bendAngle) * outRadius2;
+        const ey = 50 + Math.sin(bendAngle) * outRadius2;
+
+        circuits.push(
+            <g key={i}>
+                <polyline points={`${sx},${sy} ${mx},${my} ${ex},${ey}`} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx={ex} cy={ey} r="1.5" fill="currentColor" stroke="none" />
+            </g>
+        );
+    }
+
+    return (
+        <svg viewBox="0 0 100 100" className={className} xmlns="http://www.w3.org/2000/svg">
+            <g className="text-cyan-600 opacity-80">
+                {circuits}
+            </g>
+            <g fill="currentColor" transform="translate(14, 56) scale(0.6)">
+                {/* B */}
+                <path d="M 0 0 V -28 h 9 c 4.5 0, 7.5 2, 7.5 6 c 0 3, -2 4.5, -4.5 5.5 c 3.5 1, 5.5 3, 5.5 6.5 c 0 4.5, -3.5 10, -9 10 H 0 Z M 3.5 -4 h 5.5 c 2.5 0, 4.5 -1.5, 4.5 -4.5 c 0 -2.5, -1.5 -4.5, -4.5 -4.5 H 3.5 V -4 Z M 3.5 -16.5 h 4.5 c 2.5 0, 4 -1.5, 4 -3.5 c 0 -2.5, -1.5 -3.5, -4 -3.5 H 3.5 V -16.5 Z" />
+                {/* E */}
+                <path d="M 22 0 V -28 h 13 v 3.5 H 25.5 v 7 h 8 v 3.5 h -8 v 10.5 h 9.5 v 3.5 H 22 Z" />
+                {/* R */}
+                <path d="M 43 0 V -28 h 9.5 c 5.5 0, 9 2.5, 9 8.5 c 0 4, -2 6.5, -5.5 7.5 l 6.5 12 H 58.5 l -5.5 -11 h -4.5 v 11 H 43 Z M 46.5 -15 h 4.5 c 2.5 0, 5.5 -1, 5.5 -4.5 c 0 -3.5, -2.5 -5, -5.5 -5 h -4.5 V -15 Z" />
+                {/* > (Cyan color) */}
+                <path d="M 68 -26 L 81 -14 L 68 -2 l 2.5 2.5 l 14.5 -14.5 l -14.5 -14.5 Z" className="text-cyan-400" fill="currentColor" />
+                {/* X */}
+                <path d="M 88 -28 L 93 -28 L 102 -15 L 111 -28 L 116 -28 L 105 -12 L 118 0 L 112 0 L 102 -10 L 92 0 L 86 0 L 99 -12 Z" />
+            </g>
+        </svg>
+    )
+}
+
 // --- MAIN APP COMPONENT ---
 export default function App() {
     const [heroRef, heroVisible] = useScrollReveal();
@@ -725,9 +787,8 @@ export default function App() {
 
             <nav className="fixed top-0 left-0 w-full z-40 px-8 py-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 border border-cyan-500/50 flex items-center justify-center relative">
-                        <div className="absolute top-0 left-0 w-1 h-1 bg-cyan-400"></div>
-                        <Cpu className="text-cyan-400 w-5 h-5" />
+                    <div className="flex items-center justify-center relative">
+                        <BerixLogo className="text-white w-14 h-14" />
                     </div>
                     <div className="flex flex-col">
                         <span className="text-xl font-bold tracking-widest text-white uppercase font-mono leading-none">
