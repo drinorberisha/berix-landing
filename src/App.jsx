@@ -351,9 +351,9 @@ const CustomCursor = () => {
 
 // --- PROJECT DATA ---
 const projectsData = [
-    { id: 'AX-01', title: 'PROJECT AURORA', desc: 'Real-time financial market neural network. 5TB/s processing pipeline.', status: 'DEPLOYED', color: 'text-cyan-400', border: 'border-cyan-500', latency: '4ms', nodes: '8,192', arch: 'Quantum-Inspired Swarm Logic', logs: ['[SYS] INIT_NODE_AX01...', '[NET] ESTABLISHING_MARKET_FEED...', '[DATA] INGEST_RATE: 5.12 TB/S', '[AI] NEURAL_PATHWAY_STABLE', '[WARN] DETECTED_ANOMALY_AT_SECTOR_7', '[AI] RESOLVING_ANOMALY...', '[SYS] CYCLE_COMPLETE.'] },
-    { id: 'NX-99', title: 'NEXUS PIPELINE', desc: 'Fault-tolerant data lake supporting 100M+ concurrent analytical queries.', status: 'ACTIVE', color: 'text-amber-400', border: 'border-amber-500', latency: '12ms', nodes: '4,096', arch: 'Decentralized Vector Matrix', logs: ['[SYS] WAKING_NEXUS_NODES...', '[DATA] SYNCING_LAKE_FRAGMENTS...', '[NET] CONCURRENT_CONNS: 102.4M', '[OPT] ROUTING_EFFICIENCY: 99.9%', '[SYS] INTEGRITY_CHECK: PASSED.'] },
-    { id: 'SV-V4', title: 'SENTINEL VISION', desc: 'Edge-deployed AI models for autonomous robotics telemetry and control.', status: 'OPTIMIZING', color: 'text-cyan-600', border: 'border-cyan-700', latency: '1ms', nodes: '128 (EDGE)', arch: 'Distributed Micro-Inference', logs: ['[EDGE] DEPLOYING_TO_ROVER_UNIT_09...', '[AI] VISION_MODEL_V4_LOADED...', '[SENSORS] LIDAR_ACTIVE...', '[SYS] LATENCY_OPTIMIZED: 0.8ms', '[SYS] AWAITING_COMMAND...'] }
+    { id: 'AX-01', title: 'GLOBAL PAYROLL API', desc: 'Engineered an enterprise-level payroll integration system currently utilized seamlessly across 20+ countries.', status: 'DEPLOYED', color: 'text-cyan-400', border: 'border-cyan-500', latency: '4ms', nodes: '8,192', arch: 'Microservices & GCP', logs: ['[SYS] INIT_NODE_AX01...', '[NET] ESTABLISHING_SECURE_TUNNEL...', '[DATA] INGEST_RATE: OPTIMAL', '[API] AUTH_VERIFIED', '[SEC] ENCRYPTION_LAYER_ACTIVE', '[SYS] CYCLE_COMPLETE.'] },
+    { id: 'NX-99', title: 'B2B LEGAL-TECH SEARCH', desc: 'Built a specialized B2B legal platform equipped with vector-based semantic search for rapid document retrieval.', status: 'ACTIVE', color: 'text-amber-400', border: 'border-amber-500', latency: '12ms', nodes: '4,096', arch: 'Vector DB & LLMs', logs: ['[SYS] WAKING_NEXUS_NODES...', '[DATA] SYNCING_EMBEDDINGS...', '[NET] INDEXING_LEGAL_CORPUS...', '[OPT] SEARCH_EFFICIENCY: 99.9%', '[SYS] INTEGRITY_CHECK: PASSED.'] },
+    { id: 'SV-V4', title: 'HIGH-SPEED FINTECH AI', desc: 'Developed automated market-analysis logic for high-speed financial ecosystems to detect real-time anomalies.', status: 'OPTIMIZING', color: 'text-cyan-600', border: 'border-cyan-700', latency: '1ms', nodes: '128 (EDGE)', arch: 'Streaming ETL & Kinesis', logs: ['[EDGE] DEPLOYING_SCORING_LOGIC...', '[AI] MARKET_MODEL_V4_LOADED...', '[SENSORS] STREAM_ACTIVE...', '[SYS] LATENCY_OPTIMIZED: 0.8ms', '[SYS] AWAITING_COMMAND...'] }
 ];
 
 // --- PROJECT OVERRIDE HUD ---
@@ -763,13 +763,13 @@ export default function App() {
                         Global Data Clustering Array
                     </div>
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-none uppercase font-mono">
-                        Architecting <br />
+                        Engineering <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-700">
-                            Intelligence.
+                            Intelligent Solutions.
                         </span>
                     </h1>
                     <p className="text-sm md:text-base text-cyan-100/60 max-w-2xl mx-auto font-mono mb-12 tracking-wide leading-relaxed">
-                        Deploying autonomous data pipelines and predictive drone-logic clusters for the modern enterprise. We organize chaos into executable strategy.
+                        Transforming complex business challenges into streamlined, scalable, and intelligent digital solutions. We are a technology firm focused on end-to-end Software, Data, and AI Engineering.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 font-mono">
@@ -798,19 +798,18 @@ export default function App() {
                     <div className="flex items-center gap-4 mb-4">
                         <div className="h-[1px] w-12 bg-amber-400"></div>
                         <h2 className="text-3xl md:text-4xl font-bold text-white tracking-widest font-mono uppercase">
-                            Core <span className="text-cyan-500">Vectors</span>
+                            Core <span className="text-cyan-500">Capabilities</span>
                         </h2>
                     </div>
                     <p className="text-sm text-cyan-100/50 max-w-2xl font-mono leading-relaxed">
-                        Executing high-precision data operations. Our sub-routines process raw telemetry into clustered, actionable intelligence models.
+                        Whether you need to automate backend processes, build robust data infrastructure, or integrate cutting-edge AI into your product, we provide the technical foundation to scale your business.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <TiltCard icon={Network} title="Neural Clustering" description="Predictive modeling deploying swarm logic to identify anomalous data patterns in real-time." delay={0} />
-                    <TiltCard icon={Database} title="Data Pipelines" description="High-velocity ingestion architectures built to handle decentralized, unformatted data streams." delay={100} />
-                    <TiltCard icon={Code} title="System Protocols" description="Zero-trust application development ensuring absolute security across all enterprise nodes." delay={200} />
-                    <TiltCard icon={Cloud} title="Cloud Sentinels" description="Automated infrastructure scaling through Kubernetes, constantly monitoring and adjusting load." delay={300} />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <TiltCard icon={Code} title="Advanced Software Engineering" description="Backend development (Python, FastAPI), complex APIs, and modernizing enterprise digital landscapes via Google Cloud." delay={0} />
+                    <TiltCard icon={Database} title="Data Engineering & Infrastructure" description="High-performance data pipelines (Databricks, Spark, Airflow), Data Lakes, and real-time streaming with AWS Kinesis." delay={100} />
+                    <TiltCard icon={Network} title="Applied AI & Machine Learning" description="Integrating AI (LangChain, Pinecone, LLMs) and deploying locally trained models (CodeBERT) into core business processes." delay={200} />
                 </div>
             </section>
 
@@ -830,7 +829,7 @@ export default function App() {
                     <div className="flex items-center gap-4 mb-12">
                         <div className="h-[1px] w-12 bg-amber-400"></div>
                         <h2 className="text-3xl md:text-4xl font-bold text-white tracking-widest font-mono uppercase">
-                            Deployment <span className="text-cyan-500">Telemetry</span>
+                            Proven <span className="text-cyan-500">Track Record</span>
                         </h2>
                     </div>
 
