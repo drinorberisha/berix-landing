@@ -13,11 +13,10 @@ export default function Invoices() {
         client_business_number: '559381-4881',
         client_address: 'Redaregatan 48\\n25236 Helsingborg, Sweden',
         items: [
-            { description: 'IT Consultancy Services', hours: 160, rate: 15.00, amount: 2400.00 },
-            { description: 'Workshop at Client IKEA - travel cost', hours: 0, rate: 0, amount: 600.00 }
+            { description: 'IT Consultancy Services', hours: 160, rate: 15, amount: 2400 }
         ],
         vat_amount: 0,
-        total_amount: 3000.00
+        total_amount: 0
     });
 
     const addItem = () => {
@@ -30,7 +29,8 @@ export default function Invoices() {
     const removeItem = (index) => {
         setInvoiceData(prev => {
             const newItems = prev.items.filter((_, i) => i !== index);
-            return { ...prev, items: newItems };
+            const newTotal = newItems.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0) + parseFloat(prev.vat_amount || 0);
+            return { ...prev, items: newItems, total_amount: newTotal };
         });
     };
 
@@ -56,7 +56,14 @@ export default function Invoices() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setInvoiceData(prev => ({ ...prev, [name]: value }));
+        setInvoiceData(prev => {
+            const nextState = { ...prev, [name]: value };
+            if (name === 'vat_amount') {
+                const itemsTotal = nextState.items.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
+                nextState.total_amount = itemsTotal + (parseFloat(value) || 0);
+            }
+            return nextState;
+        });
     };
 
     const generateInvoice = async (e) => {
