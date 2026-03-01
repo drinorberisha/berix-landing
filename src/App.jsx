@@ -1,4 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './admin/AuthContext';
+import AdminLayout from './admin/AdminLayout';
+import Login from './admin/Login';
+import Dashboard from './admin/Dashboard';
+import Invoices from './admin/Invoices';
+import Contracts from './admin/Contracts';
 import { Network, Database, Code, Cloud, ChevronRight, Cpu, Layers, Maximize, ArrowRight, X, Terminal as TerminalIcon, Loader2, Target, Crosshair, Activity, AlertTriangle } from 'lucide-react';
 
 // --- GEMINI API INTEGRATION ---
@@ -741,8 +748,8 @@ const BerixLogo = ({ className = "w-10 h-10" }) => {
     )
 }
 
-// --- MAIN APP COMPONENT ---
-export default function App() {
+// --- LANDING PAGE COMPONENT ---
+function LandingPage() {
     const [heroRef, heroVisible] = useScrollReveal();
     const [servicesRef, servicesVisible] = useScrollReveal();
     const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -954,5 +961,24 @@ export default function App() {
                 </div>
             </footer>
         </div>
+    );
+}
+
+// --- MAIN APP COMPONENT ---
+export default function App() {
+    return (
+        <BrowserRouter>
+            <AuthProvider>
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/admin/login" element={<Login />} />
+                    <Route path="/admin" element={<AdminLayout />}>
+                        <Route path="dashboard" element={<Dashboard />} />
+                        <Route path="invoices" element={<Invoices />} />
+                        <Route path="contracts" element={<Contracts />} />
+                    </Route>
+                </Routes>
+            </AuthProvider>
+        </BrowserRouter>
     );
 }
