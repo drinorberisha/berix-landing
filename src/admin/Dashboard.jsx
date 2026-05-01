@@ -1,64 +1,123 @@
 import { useAuth } from './AuthContext';
-import { Target, Activity, FileText, Server } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Activity, FileText, Server, ArrowUpRight } from 'lucide-react';
+import { PageHeader, SubLabel } from './AdminUI';
 
 export default function Dashboard() {
     const { user } = useAuth();
+    const today = new Date().toLocaleDateString(undefined, {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
 
     return (
-        <div className="space-y-8 animate-fade-in">
-            <header className="flex items-center gap-4 mb-12">
-                <Target className="w-8 h-8 text-cyan-500 animate-pulse" />
-                <div>
-                    <h1 className="text-2xl font-bold text-white tracking-widest uppercase">Admin Dashboard</h1>
-                    <p className="text-cyan-600 text-[10px] uppercase tracking-widest mt-1">Operational Overview for {user.email}</p>
-                </div>
-            </header>
+        <div>
+            <PageHeader
+                kicker="§ Overview"
+                title="Dashboard"
+                caption={
+                    <span className="flex flex-col items-end">
+                        <span>{today}</span>
+                        <span className="mt-1 text-ink/55 normal-case tracking-normal text-[11px] font-sans">
+                            {user.email}
+                        </span>
+                    </span>
+                }
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-black/60 border border-cyan-900/50 p-6 relative group">
-                    <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan-500/50"></div>
-                    <div className="flex items-center gap-4 mb-4">
-                        <Activity className="text-amber-400 w-6 h-6" />
-                        <h3 className="text-white font-bold tracking-widest uppercase text-sm">System Status</h3>
-                    </div>
-                    <div className="text-3xl font-bold text-cyan-400 font-mono">ONLINE</div>
-                    <p className="text-cyan-600/50 text-[10px] uppercase mt-2">All API nodes operational</p>
+            <section className="mt-12">
+                <SubLabel>§ I — System pulse</SubLabel>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-ink/12 border border-ink/12">
+                    <StatCard
+                        label="System status"
+                        value="Online"
+                        sub="All API nodes operational"
+                        icon={Activity}
+                        tone="ember"
+                        live
+                    />
+                    <StatCard
+                        label="Invoices generated"
+                        value="—"
+                        sub="Live counter pending"
+                        icon={FileText}
+                    />
+                    <StatCard
+                        label="Cloud Run nodes"
+                        value="01"
+                        sub="LaTeX compiler microservice"
+                        icon={Server}
+                    />
                 </div>
+            </section>
 
-                <div className="bg-black/60 border border-cyan-900/50 p-6 relative group hover:border-cyan-500/50 transition-colors">
-                    <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan-500/50"></div>
-                    <div className="flex items-center gap-4 mb-4">
-                        <FileText className="text-cyan-400 w-6 h-6" />
-                        <h3 className="text-white font-bold tracking-widest uppercase text-sm">Invoices Generated</h3>
-                    </div>
-                    <div className="text-3xl font-bold text-cyan-400 font-mono">--</div>
-                    <p className="text-cyan-600/50 text-[10px] uppercase mt-2">Ready to generate</p>
+            <section className="mt-16">
+                <SubLabel>§ II — Quick actions</SubLabel>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-ink/12 border border-ink/12">
+                    <ActionTile
+                        to="/admin/invoices"
+                        title="Generate invoice"
+                        body="Compose a new invoice and compile to PDF via the LaTeX microservice."
+                    />
+                    <ActionTile
+                        to="/admin/proposals"
+                        title="Send proposal"
+                        body="Draft a project proposal: scope, phases, pricing, validity. Streams a signed PDF."
+                    />
+                    <ActionTile
+                        to="/admin/contracts"
+                        title="Draft contract"
+                        body="Compose a Statement of Work — deliverables, milestones, fees, acceptance criteria."
+                    />
                 </div>
-
-                <div className="bg-black/60 border border-cyan-900/50 p-6 relative group hover:border-cyan-500/50 transition-colors">
-                    <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan-500/50"></div>
-                    <div className="flex items-center gap-4 mb-4">
-                        <Server className="text-cyan-400 w-6 h-6" />
-                        <h3 className="text-white font-bold tracking-widest uppercase text-sm">Cloud Run Nodes</h3>
-                    </div>
-                    <div className="text-3xl font-bold text-cyan-400 font-mono">1</div>
-                    <p className="text-cyan-600/50 text-[10px] uppercase mt-2">LaTeX Compiler Microservice</p>
-                </div>
-            </div>
-
-            <div className="mt-12 border border-cyan-900/30 bg-cyan-950/10 p-8">
-                <h3 className="text-cyan-400 uppercase tracking-widest text-xs mb-4 flex items-center gap-2">
-                    <Target className="w-3 h-3" /> Quick Actions
-                </h3>
-                <div className="flex gap-4">
-                    <a href="/admin/invoices" className="px-6 py-3 bg-cyan-950/40 border border-cyan-800 hover:border-cyan-400 text-cyan-50 text-[10px] uppercase tracking-widest transition-colors">
-                        Generate Invoice
-                    </a>
-                    <a href="/admin/contracts" className="px-6 py-3 bg-cyan-950/40 border border-cyan-800 hover:border-cyan-400 text-cyan-50 text-[10px] uppercase tracking-widest transition-colors">
-                        Draft Contract
-                    </a>
-                </div>
-            </div>
+            </section>
         </div>
     );
 }
+
+const StatCard = ({ label, value, sub, icon: Icon, tone, live }) => (
+    <div className="bg-paper p-7 md:p-8">
+        <div className="flex items-center justify-between mb-10">
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-inkmute">
+                {label}
+            </span>
+            <Icon className="w-4 h-4 text-ink/45" strokeWidth={1.6} />
+        </div>
+        <div
+            className={`font-display text-[44px] md:text-[52px] leading-none tracking-tightest num-tabular ${
+                tone === 'ember' ? 'text-ember' : 'text-ink'
+            }`}
+        >
+            {value}
+        </div>
+        <div className="mt-4 flex items-center gap-2 text-[13px] text-ink/65">
+            {live && (
+                <span className="relative inline-flex w-1.5 h-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ember opacity-60" />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-ember" />
+                </span>
+            )}
+            {sub}
+        </div>
+    </div>
+);
+
+const ActionTile = ({ to, title, body }) => (
+    <Link
+        to={to}
+        className="bg-paper p-7 md:p-8 group hover:bg-paperdeep/50 transition-colors"
+    >
+        <div className="flex justify-between items-start gap-4 mb-3">
+            <h3 className="font-display text-[26px] md:text-[28px] leading-none tracking-tighter2 text-ink">
+                {title}
+            </h3>
+            <ArrowUpRight
+                className="w-4 h-4 text-ink/45 group-hover:text-ember group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+                strokeWidth={2}
+            />
+        </div>
+        <p className="text-[13.5px] text-ink/70 leading-relaxed">{body}</p>
+    </Link>
+);
