@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { Target, Lock } from 'lucide-react';
+import { ArrowRight, Lock } from 'lucide-react';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -26,57 +26,106 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen bg-[#000810] flex items-center justify-center p-4 font-mono relative overflow-hidden">
-            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0),rgba(255,255,255,0)_50%,rgba(0,0,0,0.1)_50%,rgba(0,0,0,0.1))] bg-[length:100%_4px] pointer-events-none z-0" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-cyan-900/10 rounded-full opacity-20 pointer-events-none animate-[spin_60s_linear_infinite]" />
+        <div className="min-h-screen bg-paper text-ink flex">
+            {/* Left pane: editorial title block */}
+            <div className="hidden md:flex flex-col justify-between w-[42%] border-r border-ink/12 bg-paperdeep/50 p-12">
+                <Link
+                    to="/"
+                    className="font-display text-[24px] leading-none tracking-tightest text-ink hover:text-ember transition-colors"
+                >
+                    Berix
+                    <span className="font-display italic font-light text-ember"> Systems</span>
+                </Link>
 
-            <div className="w-full max-w-md bg-black/60 border border-cyan-900/50 p-8 shadow-[0_0_30px_rgba(0,243,255,0.05)] relative z-10 backdrop-blur-md">
-                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-amber-400"></div>
-                <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-amber-400"></div>
-
-                <div className="flex flex-col items-center mb-8">
-                    <Target className="w-12 h-12 text-cyan-500 mb-4 animate-spin-slow" />
-                    <h1 className="text-2xl font-bold text-white tracking-widest uppercase">Admin Uplink</h1>
-                    <p className="text-cyan-600 text-[10px] mt-2 tracking-widest">[ SECURE AUTHENTICATION REQUIRED ]</p>
+                <div>
+                    <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-inkmute mb-6">
+                        § Internal · Admin
+                    </div>
+                    <h1 className="font-display text-[64px] leading-[0.95] tracking-tightest text-ink">
+                        Sign in to <span className="italic font-light">continue</span>.
+                    </h1>
+                    <p className="mt-7 max-w-md text-[14.5px] text-ink/75 leading-relaxed">
+                        Restricted area. Authenticate with your Berix Systems
+                        operator credentials. Sessions are managed by Supabase
+                        and held only on this device.
+                    </p>
                 </div>
 
-                {error && (
-                    <div className="bg-red-950/30 border border-red-500/50 p-4 text-red-400 text-[10px] uppercase tracking-wide mb-6">
-                        [!] ERROR: {error}
-                    </div>
-                )}
+                <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-inkmute">
+                    © {new Date().getFullYear()} Berix Systems LLC
+                </div>
+            </div>
 
-                <form onSubmit={handleLogin} className="space-y-6">
-                    <div>
-                        <label className="block text-cyan-500 text-[10px] tracking-widest uppercase mb-2">OPERATOR EMAIL</label>
-                        <input
-                            type="email"
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="w-full bg-cyan-950/20 border border-cyan-900/50 p-3 text-cyan-50 text-sm focus:outline-none focus:border-cyan-400 transition-colors"
-                        />
+            {/* Right pane: form */}
+            <div className="flex-1 flex items-center justify-center p-6 md:p-12">
+                <form onSubmit={handleLogin} className="w-full max-w-sm">
+                    <div className="md:hidden mb-12 text-center">
+                        <Link to="/" className="font-display text-[22px] tracking-tightest">
+                            Berix<span className="italic font-light text-ember"> Systems</span>
+                        </Link>
+                        <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-inkmute">
+                            Internal · Admin
+                        </div>
                     </div>
-                    <div>
-                        <label className="block text-cyan-500 text-[10px] tracking-widest uppercase mb-2 flex items-center gap-2">
-                            <Lock className="w-3 h-3" /> DECRYPTION KEY (PASSWORD)
-                        </label>
-                        <input
-                            type="password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full bg-cyan-950/20 border border-cyan-900/50 p-3 text-cyan-50 text-sm focus:outline-none focus:border-cyan-400 transition-colors"
-                        />
+
+                    <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-inkmute mb-2.5">
+                        01 — Operator email
                     </div>
+                    <input
+                        type="email"
+                        required
+                        autoFocus
+                        autoComplete="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@berixsystems.com"
+                        className="w-full border-b-2 border-ink/20 bg-transparent pb-2.5 text-[16px] text-ink placeholder:text-ink/30 focus:outline-none focus:border-ink transition-colors"
+                    />
+
+                    <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-inkmute mt-10 mb-2.5">
+                        02 — Password
+                    </div>
+                    <input
+                        type="password"
+                        required
+                        autoComplete="current-password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="••••••••"
+                        className="w-full border-b-2 border-ink/20 bg-transparent pb-2.5 text-[16px] text-ink placeholder:text-ink/30 focus:outline-none focus:border-ink transition-colors"
+                    />
+
+                    {error && (
+                        <div
+                            role="alert"
+                            className="mt-8 border-l-2 border-ember bg-ember/5 px-4 py-3 text-[13px] text-emberdeep"
+                        >
+                            {error}
+                        </div>
+                    )}
 
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full mt-4 bg-cyan-950/50 hover:bg-cyan-900/80 border border-cyan-500/50 hover:border-cyan-400 text-cyan-400 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-all disabled:opacity-50"
+                        className="mt-12 w-full bg-ink text-paper py-4 font-mono text-[12px] uppercase tracking-[0.22em] hover:bg-ember transition-colors disabled:opacity-50 disabled:cursor-wait flex items-center justify-center gap-2 group"
                     >
-                        {loading ? 'AUTHENTICATING...' : 'INITIALIZE LOGIN'}
+                        {loading ? (
+                            'Authenticating…'
+                        ) : (
+                            <>
+                                Sign in
+                                <ArrowRight
+                                    className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+                                    strokeWidth={2}
+                                />
+                            </>
+                        )}
                     </button>
+
+                    <div className="mt-8 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-inkmute">
+                        <Lock className="w-3 h-3" strokeWidth={2} />
+                        Encrypted via Supabase Auth
+                    </div>
                 </form>
             </div>
         </div>
