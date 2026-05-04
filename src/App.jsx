@@ -492,10 +492,10 @@ const Contact = () => (
             <Reveal delay={240} className="col-span-12 md:col-span-6 md:pl-10 md:border-l hairline">
                 <a
                     href="mailto:hello@berixsystems.com"
-                    className="group inline-flex items-baseline gap-3 font-display text-[34px] md:text-[44px] leading-none tracking-tighter2 text-ink hover:text-ember transition-colors duration-300"
+                    className="group inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 font-display text-[clamp(22px,6vw,32px)] md:text-[44px] leading-[1.1] tracking-tighter2 text-ink hover:text-ember transition-colors duration-300 break-all max-w-full"
                 >
                     hello@berixsystems.com
-                    <ArrowUpRight className="w-7 h-7 md:w-9 md:h-9 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={1.5} />
+                    <ArrowUpRight className="w-6 h-6 md:w-9 md:h-9 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0" strokeWidth={1.5} />
                 </a>
 
                 <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-6">
