@@ -120,7 +120,7 @@ const Hero = () => {
                 {/* Headline grid */}
                 <div className="grid grid-cols-12 gap-x-6 gap-y-10 items-end">
                     <Reveal delay={100} className="col-span-12 lg:col-span-9">
-                        <h1 className="font-display text-ink leading-[0.92] tracking-tightest text-[14vw] md:text-[10.5vw] lg:text-[9.2vw] xl:text-[150px]">
+                        <h1 className="font-display text-ink leading-[0.92] tracking-tightest text-[12.5vw] sm:text-[13vw] md:text-[10.5vw] lg:text-[9.2vw] xl:text-[150px]">
                             We engineer the
                             <br />
                             <span className="italic font-light">quiet</span> systems behind
@@ -474,7 +474,7 @@ const Contact = () => (
         </Reveal>
 
         <Reveal delay={80}>
-            <h2 className="font-display text-[12vw] md:text-[9vw] lg:text-[140px] leading-[0.92] tracking-tightest text-ink">
+            <h2 className="font-display text-[11vw] md:text-[9vw] lg:text-[140px] leading-[0.92] tracking-tightest text-ink">
                 Have a system
                 <br />
                 <span className="italic font-light">worth</span> building?
