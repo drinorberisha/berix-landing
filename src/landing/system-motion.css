@@ -1,0 +1,32 @@
+.berix-site .motion-player { margin: 0; }
+.berix-site .motion-stage { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 3px; background: var(--b-stone); isolation: isolate; }
+.berix-site .motion-poster, .berix-site .motion-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.berix-site .motion-poster { z-index: 0; }
+.berix-site .motion-video { z-index: 1; opacity: 0; pointer-events: none; }
+.berix-site .motion-video.motion-has-frame { opacity: 1; }
+.berix-site .motion-poster-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--b-olive); padding: 28px; text-align: center; }
+.berix-site .motion-poster-fallback > span { font-size: clamp(24px, 4vw, 44px); font-weight: 500; letter-spacing: -.04em; }
+.berix-site .motion-poster-fallback p { color: var(--b-muted); font-size: 13px; }
+.berix-site .motion-unavailable { position: absolute; z-index: 2; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; padding: 24px; background: var(--b-stone); text-align: center; }
+.berix-site .motion-unavailable > span { font-weight: 500; font-size: 16px; color: var(--b-ink); }
+.berix-site .motion-unavailable p { color: var(--b-muted); font-size: 13px; }
+.berix-site .motion-unavailable button { margin-top: 8px; padding: 8px 12px; border: 1px solid var(--b-line); background: var(--b-canvas); border-radius: 3px; color: var(--b-ink); font-size: 12px; }
+.berix-site .motion-caption { display: flex; justify-content: space-between; align-items: center; gap: 28px; padding-top: 18px; }
+.berix-site .motion-phase { max-width: 620px; min-width: 0; }
+.berix-site .motion-phase strong { color: var(--b-ink); font-size: 13px; font-weight: 500; }
+.berix-site .motion-phase > p { color: var(--b-muted); font-size: 12px; line-height: 1.6; margin-top: 4px; }
+.berix-site .motion-phase > .motion-play-hint { color: var(--b-cherry); font-size: 11px; }
+.berix-site .motion-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.berix-site .motion-controls button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 8px 12px; border: 1px solid var(--b-line); border-radius: 3px; background: var(--b-canvas); color: var(--b-ink); font-size: 11px; white-space: nowrap; }
+.berix-site .motion-controls button:hover:not(:disabled) { border-color: var(--b-olive); background: var(--b-olive-soft); }
+.berix-site .motion-controls button:disabled { color: var(--b-muted); cursor: default; opacity: .65; }
+.berix-site .motion-control-symbol { font-size: 16px; line-height: 1; color: var(--b-cherry); }
+
+@media (max-width: 767px) {
+  .berix-site .motion-caption { flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 14px; }
+  .berix-site .motion-phase strong { font-size: 12px; }
+  .berix-site .motion-phase > p { font-size: 11px; }
+  .berix-site .motion-controls { gap: 8px; }
+  .berix-site .motion-controls button { min-height: 40px; padding-inline: 10px; font-size: 10px; }
+  .berix-site .motion-poster-fallback p { font-size: 11px; }
+}

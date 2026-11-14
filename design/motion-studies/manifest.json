@@ -1,0 +1,259 @@
+{
+  "name": "BERIX \u2014 Engineering in Motion",
+  "date": "2026-11-12",
+  "source_url": "https://berixsystems.com/",
+  "intent": "Three original visual studies derived from the published payroll integration, legal retrieval, and edge anomaly detection engagements. Illustrative mechanisms and records; reported case metrics are not live simulation measurements.",
+  "authoring_runtime": "Higgsfield 3D Jutsu / Blender 5.2.0 LTS",
+  "source_fps": 30,
+  "source_frames": [
+    1,
+    361
+  ],
+  "duration_seconds": 12,
+  "delivery": {
+    "renderer": "Three.js PBR, authored animated GLB, frame-by-frame capture",
+    "fps": 24,
+    "resolution": [
+      960,
+      600
+    ],
+    "mode": "film with optional interactive 3D"
+  },
+  "cases": [
+    {
+      "id": "payroll",
+      "title": "Contract Loom",
+      "project": {
+        "ok": true,
+        "project": {
+          "id": "49796a5c-8fa8-45b9-9f93-af384bfb7266",
+          "name": "BERIX Payroll \u2014 Translation Loom"
+        },
+        "projectId": "49796a5c-8fa8-45b9-9f93-af384bfb7266",
+        "projectUrl": "https://higgsfield.ai/3d-jutsu/49796a5c-8fa8-45b9-9f93-af384bfb7266",
+        "nextTool": "scene_builder_3d_get_project",
+        "nextArguments": {
+          "projectId": "49796a5c-8fa8-45b9-9f93-af384bfb7266"
+        }
+      },
+      "revision": 5,
+      "loop_audit": {
+        "loop_max_world_matrix_error": 0,
+        "nonfinite": false,
+        "objects": 702,
+        "camera": "CAM_main",
+        "fps": 30,
+        "range": [
+          1,
+          361
+        ],
+        "source": "Translation Loom",
+        "refinement": "Thin optical schema boundaries; information transformation is the primary action.",
+        "missing_textures": []
+      },
+      "blend_path": "payroll.blend",
+      "builder_path": "build_payroll.py",
+      "files": {
+        "design/motion-studies/payroll.blend": {
+          "bytes": 10503968,
+          "sha256": "297db4ec9d06104531aaf66717067ff72e5808828226aadee74e8fd262fa0030"
+        },
+        "design/motion-studies/build_payroll.py": {
+          "bytes": 24293,
+          "sha256": "ac8260dfbeca1f1a77938556b0659510f3f734f3f6cbb9356c39cd0880587657"
+        },
+        "public/motion-studies/payroll.glb": {
+          "bytes": 8028776,
+          "sha256": "65707d5305dc1ba8833818abbbd56b3d13a3b359e5743ad7b14e057116cee842"
+        },
+        "public/motion-studies/payroll.mp4": {
+          "bytes": 2300758,
+          "sha256": "930041867a5fed74b97d89b2262ae7320261a528030576b6771833407a009828"
+        }
+      },
+      "film_probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 600,
+            "pix_fmt": "yuv420p",
+            "avg_frame_rate": "24/1",
+            "nb_frames": "288"
+          }
+        ],
+        "format": {
+          "duration": "12.000000",
+          "size": "2300758"
+        }
+      },
+      "film_frames_verified": 288,
+      "film_fast_start": true,
+      "compression_ssim": 0.990789
+    },
+    {
+      "id": "legal",
+      "title": "Citation Field",
+      "project": {
+        "ok": true,
+        "project": {
+          "id": "c5cae694-56b8-4e73-b3c3-23e0e94a486f",
+          "name": "BERIX Legal \u2014 Citation Field"
+        },
+        "projectId": "c5cae694-56b8-4e73-b3c3-23e0e94a486f",
+        "projectUrl": "https://higgsfield.ai/3d-jutsu/c5cae694-56b8-4e73-b3c3-23e0e94a486f",
+        "nextTool": "scene_builder_3d_get_project",
+        "nextArguments": {
+          "projectId": "c5cae694-56b8-4e73-b3c3-23e0e94a486f"
+        }
+      },
+      "revision": 5,
+      "loop_audit": {
+        "loop_max_world_matrix_error": 0,
+        "nonfinite": false,
+        "objects": 251,
+        "camera": "CAM_main",
+        "fps": 30,
+        "range": [
+          1,
+          361
+        ],
+        "source": "Citation Field",
+        "refinement": "Open offset retrieval segments and a document index with depth. Source-linked selected passages retain their exact anchors.",
+        "missing_textures": []
+      },
+      "blend_path": "legal.blend",
+      "builder_path": "build_legal.py",
+      "files": {
+        "design/motion-studies/legal.blend": {
+          "bytes": 10042235,
+          "sha256": "6fc13c912cac756209135beaf8d2eaa82afb2e4e8fff66c744ffc82a1510b3fa"
+        },
+        "design/motion-studies/build_legal.py": {
+          "bytes": 28391,
+          "sha256": "2363fcf4739b0324ca4f4efc10e40e94c1fd53a03f5b8a5ac63a2e778adffc3b"
+        },
+        "public/motion-studies/legal.glb": {
+          "bytes": 2090172,
+          "sha256": "332cb5752b8354cff3c9a3b5524695f1e3a17ffb7b7ac66ea502b85a352e0d3a"
+        },
+        "public/motion-studies/legal.mp4": {
+          "bytes": 3431977,
+          "sha256": "ae34847e6abc0d1b32959ff232c69420c3bddb6e8d7df2c1319fe894616015f6"
+        }
+      },
+      "film_probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 600,
+            "pix_fmt": "yuv420p",
+            "avg_frame_rate": "24/1",
+            "nb_frames": "288"
+          }
+        ],
+        "format": {
+          "duration": "12.000000",
+          "size": "3431977"
+        }
+      },
+      "film_frames_verified": 288,
+      "film_fast_start": true,
+      "compression_ssim": 0.992616
+    },
+    {
+      "id": "edge",
+      "title": "Signal Surface",
+      "project": {
+        "ok": true,
+        "project": {
+          "id": "7110d20c-e789-4986-91eb-74dbc1b815ff",
+          "name": "BERIX Edge \u2014 Signal Surface"
+        },
+        "projectId": "7110d20c-e789-4986-91eb-74dbc1b815ff",
+        "projectUrl": "https://higgsfield.ai/3d-jutsu/7110d20c-e789-4986-91eb-74dbc1b815ff",
+        "nextTool": "scene_builder_3d_get_project",
+        "nextArguments": {
+          "projectId": "7110d20c-e789-4986-91eb-74dbc1b815ff"
+        }
+      },
+      "revision": 5,
+      "loop_audit": {
+        "loop_max_world_matrix_error": 9.797174324372975e-18,
+        "nonfinite": false,
+        "objects": 349,
+        "camera": "CAM_main",
+        "fps": 30,
+        "range": [
+          1,
+          361
+        ],
+        "source": "Signal Surface",
+        "refinement": "The anomaly originates inside ordinary scoring cell009. All128cells remain independent; an external route carries the alert without a central scoring device.",
+        "missing_textures": []
+      },
+      "blend_path": "edge.blend",
+      "builder_path": "build_edge.py",
+      "files": {
+        "design/motion-studies/edge.blend": {
+          "bytes": 7866300,
+          "sha256": "b0b42a90f9a2f5ec68ac38ccbde916fa5d0938f7d6494def36069b62a910973d"
+        },
+        "design/motion-studies/build_edge.py": {
+          "bytes": 20117,
+          "sha256": "6a6414df27a9328fd38195e389be60e4e14321801d64159c903af276303ffb80"
+        },
+        "public/motion-studies/edge.glb": {
+          "bytes": 4078332,
+          "sha256": "5e7277823974c5bcaa40533dbe63c7307207f41ae44de691a0f40f2b001a6cd1"
+        },
+        "public/motion-studies/edge.mp4": {
+          "bytes": 3285029,
+          "sha256": "25ec32142f8331139d5b2ce8ae71df02c9c1af22cbaceeb1f63c4c92aca4f428"
+        }
+      },
+      "film_probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 600,
+            "pix_fmt": "yuv420p",
+            "avg_frame_rate": "24/1",
+            "nb_frames": "288"
+          }
+        ],
+        "format": {
+          "duration": "12.000000",
+          "size": "3285029"
+        }
+      },
+      "film_frames_verified": 288,
+      "film_fast_start": true,
+      "compression_ssim": 0.991802
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "environment": "Local production Vite preview in headless Chrome; desktop and mobile viewports",
+    "lighthouse_scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp_seconds": 2.1,
+    "cls": 0.004930560555484021,
+    "actual_film_playback": "All three decode to 12 seconds at 960x600, 24 fps, 288 frames. Pause, replay, timeline, offscreen pause, case cleanup and reduced-motion poster passed.",
+    "default_delivery": "Film only; no GLB or 3D canvas bundle loads before Explore 3D.",
+    "source_loop_world_matrix_error_max": 9.797174324372975e-18,
+    "publication": "Local implementation; not deployed."
+  }
+}

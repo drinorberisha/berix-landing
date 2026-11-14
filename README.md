@@ -1,16 +1,49 @@
-# React + Vite
+# BERIX website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React and Vite landing page with case-study motion films, optional interactive 3D,
+and a separate Supabase-backed admin area.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use Node.js 22 and run:
 
-## React Compiler
+```sh
+npm ci
+cp .env.example .env
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Fill in `.env` for the admin area. The public landing page loads independently.
+Vite embeds `VITE_*` values in browser code; use only a Supabase browser key,
+never a server or service-role key. Keep the package lockfile committed.
 
-## Expanding the ESLint configuration
+```sh
+npm run build
+npm run preview
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Publishing
+
+Pushing `main` triggers `.github/workflows/deploy.yml` and publishes `dist` to
+GitHub Pages at https://berixsystems.com/. The workflow also creates the SPA
+fallback for direct routes such as `/motion-studies` and `/admin/login`.
+
+Configure these repository Actions secrets before deploying:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+- `VITE_API_URL`
+
+`.env` stays local and is not tracked. The workflow supplies the same values at
+build time from Actions secrets.
+
+## Motion assets
+
+Commit the MP4s, WebP posters, and GLBs in `public/motion-studies`: films are the
+default presentation, and GLBs load only when a visitor chooses Explore 3D.
+Self-hosted fonts and their licenses are in `public/fonts`.
+
+`design/motion-studies` contains the Python builders, storyboards, and provenance
+manifest. Editable `.blend` masters remain local and in the linked Higgsfield
+projects. Backups, local verification reports, and the superseded Connected Core
+experiment are ignored without deleting the local files.

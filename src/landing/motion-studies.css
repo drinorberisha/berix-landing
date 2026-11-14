@@ -1,0 +1,191 @@
+/* A separate concept-review surface using BERIX's existing brand tokens.
+   Visual density 4, layout variance 6, motion 8: movement belongs to the scene. */
+.berix-site.ms-page { --b-gutter: clamp(24px, 4.2vw, 72px); }
+.ms-header { min-height: 86px; padding: 20px var(--b-gutter); display: flex; align-items: center; justify-content: space-between; gap: 28px; border-bottom: 1px solid var(--b-line); }
+.ms-header > span { font-size: 12px; color: var(--b-muted); }
+.ms-home-link { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; }
+.ms-home-link:hover { color: var(--b-cherry); }
+.ms-main { max-width: 1680px; margin-inline: auto; padding: 40px var(--b-gutter) 80px; }
+.ms-intro { max-width: 1230px; }
+.ms-kicker { color: var(--b-cherry); font-size: 12px; font-weight: 500; margin-bottom: 16px !important; }
+.ms-intro h1 { font-size: clamp(48px, 5.6vw, 88px); line-height: 1.04; letter-spacing: -.06em; font-weight: 450; }
+.ms-intro h1 > span { color: var(--b-olive); }
+.ms-intro-text { max-width: 650px; margin-top: 19px !important; color: var(--b-muted); font-size: clamp(14px, 1.2vw, 17px); line-height: 1.65; }
+.ms-study-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 32px; border-top: 1px solid var(--b-line); border-bottom: 1px solid var(--b-line); }
+.ms-study-tabs > button { padding: 19px 26px; display: flex; align-items: center; gap: 16px; color: var(--b-ink); background: transparent; text-align: left; min-height: 88px; transition: background 180ms ease; }
+.ms-study-tabs > button + button { border-left: 1px solid var(--b-line); }
+.ms-study-tabs > button[aria-selected='true'] { background: var(--b-stone); }
+.ms-study-tabs > button:hover { background: var(--b-stone); }
+.ms-tab-number { font-size: 11px; font-variant-numeric: tabular-nums; color: var(--b-muted); align-self: flex-start; padding-top: 5px; }
+.ms-study-tabs strong { font-weight: 500; display: block; font-size: clamp(17px, 1.9vw, 25px); letter-spacing: -.035em; }
+.ms-study-tabs small { display: block; font-size: 11px; color: var(--b-muted); margin-top: 3px; }
+.ms-study-tabs svg { margin-left: auto; color: var(--b-muted); }
+.ms-study-tabs > button[aria-selected='true'] svg { color: var(--b-cherry); }
+.ms-study-panel { margin-top: 28px; }
+.ms-study-panel:focus { outline: none; }
+.ms-study-panel:focus-visible { outline: 2px solid var(--b-focus); outline-offset: 10px; }
+.ms-study-heading { margin-bottom: 24px; max-width: 900px; }
+.ms-study-heading > p:first-child { color: var(--b-muted); font-size: 12px; margin-bottom: 12px; }
+.ms-study-heading h2 { font-size: clamp(30px, 2.6vw, 42px); letter-spacing: -.045em; line-height: 1.1; }
+.ms-study-description { color: var(--b-muted); font-size: 14px; line-height: 1.7; max-width: 750px; margin-top: 12px !important; }
+.ms-film { min-width: 0; }
+.ms-stage { width: 100%; aspect-ratio: 8 / 5; background: var(--b-stone); position: relative; overflow: hidden; border-radius: 4px; isolation: isolate; }
+.ms-poster { position: absolute; z-index: 0; inset: 0; object-fit: contain !important; transition: opacity 200ms ease; }
+.ms-poster-covered { opacity: 0; }
+.ms-video { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; pointer-events: none; }
+.ms-video-ready { opacity: 1; }
+.ms-presentation-switch { display: flex; align-items: center; gap: 5px; margin-bottom: 14px; }
+.ms-presentation-switch > button { min-height: 36px; padding: 8px 13px; font-size: 11px !important; color: var(--b-muted); background: transparent; border-radius: 3px; }
+.ms-presentation-switch > button[aria-pressed='true'] { background: var(--b-stone); color: var(--b-cherry); }
+.ms-presentation-switch > button:hover { color: var(--b-ink); }
+.ms-presentation-switch > span { margin-left: 12px; font-size: 10px; color: var(--b-muted); }
+.ms-canvas { position: absolute; z-index: 1; inset: 0; touch-action: pan-y; }
+.ms-canvas canvas { cursor: grab; touch-action: pan-y !important; }
+.ms-canvas canvas:active { cursor: grabbing; }
+.ms-still-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px; text-align: center; padding: 36px; }
+.ms-still-fallback > span { font-size: clamp(30px, 4vw, 64px); letter-spacing: -.05em; color: var(--b-olive); }
+.ms-still-fallback p { max-width: 400px; font-size: 14px; color: var(--b-muted); }
+.ms-scene-status { position: absolute; z-index: 2; bottom: 22px; left: 24px; max-width: min(460px, calc(100% - 48px)); font-size: 12px; color: var(--b-ink); background: var(--b-canvas); border: 1px solid var(--b-line); border-radius: 3px; padding: 10px 14px; pointer-events: none; }
+.ms-scene-failed { color: var(--b-muted); }
+.ms-stage-play { position: absolute; z-index: 2; bottom: 24px; left: 24px; display: flex; align-items: center; gap: 12px; padding: 14px 18px; border: 1px solid var(--b-line) !important; border-radius: 3px; background: var(--b-canvas); color: var(--b-ink); font-size: 12px !important; }
+.ms-stage-play:hover { color: var(--b-cherry); }
+.ms-film-caption { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-block: 21px; }
+.ms-film-caption-copy > span { font-size: 13px; font-weight: 500; }
+.ms-film-caption-copy > p { font-size: 12px; color: var(--b-muted); margin-top: 5px; }
+.ms-player-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.ms-player-controls button { min-height: 42px; display: inline-flex; align-items: center; gap: 9px; padding: 10px 14px; border: 1px solid var(--b-line) !important; border-radius: 3px; background: var(--b-canvas); color: var(--b-ink); font-size: 11px !important; }
+.ms-player-controls button:hover:not(:disabled) { border-color: var(--b-olive) !important; background: var(--b-olive-soft); }
+.ms-player-controls button > svg { color: var(--b-cherry); }
+.ms-player-controls button:disabled { cursor: default; opacity: .5; }
+.ms-timeline { display: flex; gap: 20px; align-items: center; margin-top: 2px; }
+.ms-timeline input { margin: 0; accent-color: var(--b-cherry); width: 100%; min-width: 0; height: 22px; cursor: pointer; }
+.ms-timeline > span { color: var(--b-muted); font-size: 10px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ms-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.ms-story-beats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; list-style: none; margin: 12px 0 0; padding: 0; }
+.ms-story-beats li { display: flex; align-items: baseline; gap: 9px; color: var(--b-muted); font-size: 11px; transition: color 150ms ease; }
+.ms-story-beats li > span { font-size: 9px; font-variant-numeric: tabular-nums; }
+.ms-context { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(40px, 9vw, 140px); margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--b-line); }
+.ms-context h3 { font-size: 18px; line-height: 1.35; letter-spacing: -.025em; }
+.ms-concept-description p { margin-top: 18px; color: var(--b-muted); font-size: 14px; line-height: 1.8; }
+.ms-concept-description p + p { font-size: 12px; }
+.ms-project-meta { color: var(--b-muted); font-size: 11px; margin-top: 11px !important; }
+.ms-outcomes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 25px 0 0; }
+.ms-outcomes dt { color: var(--b-olive); font-size: clamp(28px, 3.2vw, 44px); font-weight: 450; line-height: 1.2; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.ms-outcomes dd { margin: 8px 0 0; color: var(--b-muted); font-size: 11px; }
+.ms-outcomes-note { color: var(--b-muted); font-size: 10px; line-height: 1.6; max-width: 480px; margin-top: 24px !important; }
+.ms-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-inline: var(--b-gutter); border-top: 1px solid var(--b-line); padding-block: 28px 34px; color: var(--b-muted); font-size: 11px; }
+.ms-footer > a { display: inline-flex; align-items: center; gap: 9px; }
+.ms-footer > a:hover { color: var(--b-cherry); }
+
+.ms-home-showcase { margin-top: 42px; padding-top: 20px; border-top: 1px solid var(--b-line); }
+.ms-showcase-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 18px; }
+.berix-site .ms-showcase-label { font-size: 12px; font-weight: 500; letter-spacing: normal; line-height: 1.4; color: var(--b-muted); }
+.ms-showcase-tabs { display: flex; align-items: center; gap: 7px; }
+.ms-showcase-tabs > button { min-height: 36px; padding: 8px 13px; border-radius: 3px; color: var(--b-muted); background: transparent; font-size: 11px !important; white-space: nowrap; }
+.ms-showcase-tabs > button[aria-selected='true'] { color: var(--b-cherry); background: var(--b-stone); }
+.ms-showcase-tabs > button:hover { color: var(--b-ink); }
+.ms-showcase-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, 1fr); gap: clamp(28px, 4vw, 58px); align-items: center; }
+.ms-showcase-layout:focus { outline: none; }
+.ms-showcase-layout:focus-visible { outline: 2px solid var(--b-focus); outline-offset: 8px; }
+.ms-showcase-aside { padding-top: 25px; padding-bottom: 55px; }
+.ms-showcase-client { font-size: 11px; color: var(--b-muted); margin-bottom: 14px !important; }
+.ms-showcase-aside h3 { font-size: clamp(23px, 2.4vw, 34px); letter-spacing: -.035em; line-height: 1.2; }
+.ms-showcase-brief { color: var(--b-muted); font-size: 13px; line-height: 1.8; margin-top: 19px !important; max-width: 395px; }
+.ms-showcase-stack { color: var(--b-muted); font-size: 10px; margin-top: 16px !important; }
+.ms-showcase-aside .ms-outcomes { gap: 18px; margin-top: 25px; padding-top: 23px; border-top: 1px solid var(--b-line); }
+.ms-showcase-aside .ms-outcomes dt { font-size: clamp(25px, 2.65vw, 38px); }
+.ms-showcase-aside .ms-outcomes dd { font-size: 10px; }
+.ms-showcase-aside .ms-outcomes-note { font-size: 9px; margin-top: 19px !important; }
+.ms-showcase-detail { display: inline-flex; align-items: center; gap: 14px; font-size: 11px; margin-top: 22px; }
+.ms-showcase-detail:hover { color: var(--b-cherry); }
+.ms-home-showcase .ms-film-caption { align-items: flex-start; gap: 20px; }
+.ms-home-showcase .ms-film-caption-copy > p { max-width: 330px; font-size: 11px; }
+.ms-home-showcase .ms-story-beats { gap: 10px; }
+.ms-home-showcase .ms-story-beats li { font-size: 10px; line-height: 1.5; gap: 7px; }
+.ms-home-showcase .ms-player-controls { gap: 7px; }
+.ms-home-showcase .ms-player-controls button { padding-inline: 10px; font-size: 10px !important; }
+
+@media (max-width: 900px) {
+  .ms-header > span { display: none; }
+  .ms-main { padding-top: 44px; }
+  .ms-study-tabs > button { padding: 19px 16px; gap: 10px; }
+  .ms-study-tabs strong { font-size: 19px; }
+  .ms-study-tabs svg { width: 14px; }
+  .ms-context { gap: 40px; }
+  .ms-outcomes { gap: 16px; }
+  .ms-story-beats { gap: 12px; }
+  .ms-showcase-layout { grid-template-columns: minmax(0, 1.5fr) minmax(245px, 1fr); gap: 26px; }
+  .ms-showcase-aside { padding-bottom: 30px; }
+  .ms-showcase-aside h3 { font-size: 25px; }
+  .ms-showcase-brief { font-size: 12px; }
+  .ms-showcase-aside .ms-outcomes { gap: 11px; }
+  .ms-showcase-aside .ms-outcomes dt { font-size: 26px; }
+  .ms-home-showcase .ms-film-caption { flex-direction: column; gap: 14px; }
+  .ms-home-showcase .ms-story-beats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .ms-showcase-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .ms-showcase-aside { padding-top: 0; padding-bottom: 0; }
+  .ms-showcase-aside h3 { max-width: 500px; font-size: 28px; }
+  .ms-showcase-brief { max-width: 500px; font-size: 13px; margin-top: 15px !important; }
+  .ms-showcase-aside .ms-outcomes { max-width: 500px; }
+  .ms-showcase-aside .ms-outcomes dt { font-size: 31px; }
+  .ms-home-showcase .ms-film-caption { flex-direction: row; align-items: center; }
+  .ms-home-showcase .ms-story-beats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .ms-header { min-height: 72px; padding-block: 18px; }
+  .ms-home-link { max-width: 155px; justify-content: flex-end; text-align: right; font-size: 10px; gap: 8px; }
+  .ms-header .berix-wordmark { font-size: 28px; }
+  .ms-main { padding-top: 35px; padding-bottom: 50px; }
+  .ms-kicker { margin-bottom: 16px !important; font-size: 11px; }
+  .ms-intro h1 { font-size: clamp(50px, 11.8vw, 70px); }
+  .ms-intro-text { font-size: 14px; margin-top: 22px !important; }
+  .ms-study-tabs { margin-top: 34px; }
+  .ms-study-tabs > button { display: block; padding: 13px 10px; min-height: 103px; }
+  .ms-tab-number { display: block; padding-top: 0; margin-bottom: 8px; font-size: 9px; }
+  .ms-study-tabs strong { font-size: 15px; line-height: 1.2; min-height: 36px; letter-spacing: -.03em; }
+  .ms-study-tabs small { font-size: 9px; margin-top: 7px; }
+  .ms-study-tabs svg { display: none; }
+  .ms-study-panel { margin-top: 28px; }
+  .ms-study-heading { margin-bottom: 22px; }
+  .ms-study-heading > p:first-child { font-size: 11px; margin-bottom: 10px; }
+  .ms-study-heading h2 { font-size: 31px; max-width: 330px; }
+  .ms-study-description { font-size: 12px; line-height: 1.7; margin-top: 13px !important; }
+  .ms-stage { aspect-ratio: 4 / 3; margin-inline: calc(var(--b-gutter) * -1); width: calc(100% + var(--b-gutter) * 2); border-radius: 0; }
+  .ms-poster { object-fit: contain !important; }
+  .ms-film-caption { align-items: flex-start; flex-direction: column; gap: 16px; padding-block: 19px; }
+  .ms-film-caption-copy > p { font-size: 11px; line-height: 1.6; }
+  .ms-player-controls { gap: 8px; }
+  .ms-player-controls button { min-height: 40px; padding: 9px 12px; font-size: 10px !important; }
+  .ms-story-beats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
+  .ms-story-beats li { font-size: 10px; }
+  .ms-context { grid-template-columns: minmax(0, 1fr); margin-top: 36px; padding-top: 25px; gap: 32px; }
+  .ms-context h3 { font-size: 17px; }
+  .ms-concept-description p { font-size: 13px; margin-top: 14px; }
+  .ms-outcomes { margin-top: 21px; }
+  .ms-outcomes dt, .ms-showcase-aside .ms-outcomes dt { font-size: clamp(26px, 8vw, 31px); }
+  .ms-outcomes dd { font-size: 10px; margin-top: 6px; }
+  .ms-outcomes-note { font-size: 9px; margin-top: 18px !important; }
+  .ms-scene-status { bottom: 16px; left: 24px; font-size: 10px; padding: 9px 11px; }
+  .ms-stage-play { bottom: 18px; font-size: 11px !important; padding: 12px 14px; }
+  .ms-presentation-switch { margin-bottom: 12px; }
+  .ms-presentation-switch > button { min-height: 34px; padding-inline: 11px; font-size: 10px !important; }
+  .ms-presentation-switch > span { font-size: 9px; margin-left: 8px; }
+  .ms-footer { flex-direction: column; align-items: flex-start; gap: 13px; font-size: 10px; padding-block: 24px 28px; }
+  .ms-home-showcase { margin-top: 32px; padding-top: 17px; }
+  .ms-showcase-toolbar { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .ms-showcase-tabs { width: 100%; gap: 3px; }
+  .ms-showcase-tabs > button { flex: 1; padding-inline: 7px; font-size: 10px !important; }
+  .ms-home-showcase .ms-stage { margin-inline: 0; width: 100%; aspect-ratio: 8 / 5; }
+  .ms-home-showcase .ms-film-caption { align-items: flex-start; flex-direction: column; }
+  .ms-home-showcase .ms-story-beats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 20px; }
+  .ms-showcase-client { margin-bottom: 11px !important; }
+  .ms-showcase-aside h3 { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-study-tabs > button, .ms-poster, .ms-story-beats li { transition: none; }
+}

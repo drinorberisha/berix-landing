@@ -1,0 +1,153 @@
+/* Semantic software examples, not screenshots of a shipped product.
+   The architectural character comes from alignment, hierarchy, and restraint. */
+.berix-site .sv-system {
+  margin-top: 42px;
+  border: 1px solid var(--b-line);
+  border-radius: 4px;
+  background: var(--b-stone);
+  min-height: 384px;
+}
+.berix-site .sv-system-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 61px;
+  padding: 10px 32px;
+  border-bottom: 1px solid var(--b-line);
+}
+.berix-site .sv-example-label { color: var(--b-muted); font-size: 12px; }
+.berix-site .sv-system-tabs { display: flex; gap: 4px; }
+.berix-site .sv-system-tabs button {
+  min-height: 36px;
+  padding: 8px 15px;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--b-muted);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 160ms ease, color 160ms ease;
+}
+.berix-site .sv-system-tabs button:hover { color: var(--b-ink); }
+.berix-site .sv-system-tabs button[aria-selected='true'] { background: var(--b-canvas); color: var(--b-cherry); }
+.berix-site .sv-system-panel { padding: 18px 40px; }
+.berix-site .sv-system-title { text-align: center; font-size: 14px; color: var(--b-ink); font-weight: 500; }
+.berix-site .sv-system-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.berix-site .sv-system-heading .sv-system-title { text-align: left; }
+.berix-site .sv-presentation-controls { display: flex; gap: 4px; }
+.berix-site .sv-presentation-controls button { min-height: 34px; padding: 7px 11px; border-radius: 3px; color: var(--b-muted); background: transparent; font-size: 11px; }
+.berix-site .sv-presentation-controls button[aria-pressed='true'] { color: var(--b-cherry); background: var(--b-canvas); }
+.berix-site .sv-presentation-controls button:hover { color: var(--b-ink); }
+.berix-site .sv-motion-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(240px, 1fr); gap: 40px; align-items: center; margin-top: 20px; }
+.berix-site .sv-system-overview { margin: 0; padding: 0 0 54px; }
+.berix-site .sv-system-overview > div { padding: 16px 0; border-bottom: 1px solid var(--b-line); }
+.berix-site .sv-system-overview > div:first-child { padding-top: 0; }
+.berix-site .sv-system-overview > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.berix-site .sv-system-overview dt { color: var(--b-muted); font-size: 10px; letter-spacing: .04em; margin-bottom: 7px; }
+.berix-site .sv-system-overview dd { margin: 0; color: var(--b-ink); font-size: 13px; line-height: 1.6; }
+.berix-site .sv-system-overview dd > span { display: block; }
+.berix-site .sv-system-overview strong { font-weight: 500; }
+.berix-site .sv-system-overview small { display: block; color: var(--b-muted); font-size: 10px; margin-top: 6px; }
+.berix-site .sv-system-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 68px;
+  max-width: 1050px;
+  list-style: none;
+  margin: 18px auto 0;
+  padding: 0;
+}
+.berix-site .sv-stage { position: relative; min-width: 0; }
+.berix-site .sv-stage:not(:last-child)::after { content: '→'; position: absolute; right: -44px; top: 52px; color: var(--b-cherry); font-size: 24px; font-weight: 400; }
+.berix-site .sv-stage-label { display: block; margin-bottom: 8px; color: var(--b-muted); font-size: 10px; line-height: 1.3; text-align: center; letter-spacing: .04em; }
+.berix-site .sv-node-stack { display: grid; gap: 8px; }
+.berix-site .sv-small-node { display: grid; align-items: center; justify-items: center; min-height: 45px; padding: 10px 14px; border: 1px solid var(--b-line); border-radius: 3px; background: var(--b-canvas); text-align: center; color: var(--b-ink); font-size: 13px; line-height: 1.4; }
+.berix-site .sv-core-node { min-height: 98px; padding: 12px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--b-olive); border-radius: 3px; background: var(--b-olive-soft); text-align: center; }
+.berix-site .sv-code-symbol { font-size: 20px; line-height: 1.1; letter-spacing: .12em; color: var(--b-olive); }
+.berix-site .sv-core-node strong { font-size: 16px; font-weight: 500; margin-top: 7px; letter-spacing: -.02em; }
+.berix-site .sv-core-node > span:last-child { font-size: 11px; color: var(--b-muted); margin-top: 6px; }
+.berix-site .sv-stage-caption { margin-top: 7px; text-align: center; color: var(--b-muted); font-size: 10px; line-height: 1.3; }
+.berix-site .sv-system-note { text-align: center; max-width: 740px; margin: 16px auto 0; font-size: 12px; color: var(--b-muted); line-height: 1.6; }
+
+.berix-site .sv-knowledge, .berix-site .sv-workflow { min-height: 390px; padding: 26px; border-radius: 4px; background: var(--b-stone); border: 1px solid var(--b-line); }
+.berix-site .sv-mini-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; font-size: 12px; color: var(--b-ink); font-weight: 500; }
+.berix-site .sv-example-tag { font-size: 10px; color: var(--b-muted); font-weight: 400; }
+.berix-site .sv-search-label { display: block; font-size: 11px; color: var(--b-muted); margin-bottom: 8px; }
+.berix-site .sv-search { width: 100%; min-height: 42px; padding: 10px 12px; border: 1px solid var(--b-line); border-radius: 3px; background: var(--b-canvas); color: var(--b-ink); font-family: inherit; font-size: 13px; }
+.berix-site .sv-search::placeholder { color: var(--b-muted); opacity: 1; }
+.berix-site .sv-knowledge-body { margin-top: 16px; }
+.berix-site .sv-document-list { list-style: none; padding: 0; margin: 0; }
+.berix-site .sv-document-list button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 8px 10px; text-align: left; color: var(--b-ink); background: transparent; border-radius: 3px; font-size: 12px; }
+.berix-site .sv-document-list button[aria-pressed='true'] { background: var(--b-olive-soft); }
+.berix-site .sv-document-list button:hover { background: var(--b-canvas); }
+.berix-site .sv-document-icon { display: grid; place-items: center; width: 27px; height: 32px; border: 1px solid var(--b-line); border-radius: 2px; color: var(--b-olive); font-size: 21px; flex-shrink: 0; }
+.berix-site .sv-document-list small { display: block; color: var(--b-muted); font-size: 10px; margin-top: 2px; }
+.berix-site .sv-document-arrow { margin-left: auto; font-size: 16px; color: var(--b-cherry); }
+.berix-site .sv-document-preview { margin-top: 18px; border-top: 1px solid var(--b-line); padding-top: 16px; }
+.berix-site .sv-document-preview strong { font-weight: 500; color: var(--b-ink); font-size: 12px; }
+.berix-site .sv-document-preview p { font-size: 12px; line-height: 1.65; color: var(--b-muted); margin-top: 7px; }
+.berix-site .sv-empty { padding-block: 28px; color: var(--b-muted); font-size: 13px; line-height: 1.7; }
+
+.berix-site .sv-workflow { display: flex; flex-direction: column; }
+.berix-site .sv-workflow-steps { list-style: none; padding: 0; margin: 0; }
+.berix-site .sv-workflow-steps li { display: flex; gap: 14px; position: relative; padding: 0 0 24px; }
+.berix-site .sv-workflow-steps li:last-child { padding-bottom: 0; }
+.berix-site .sv-workflow-steps li:not(:last-child)::after { content: ''; position: absolute; left: 13px; top: 32px; bottom: 4px; width: 1px; background: var(--b-line); }
+.berix-site .sv-workflow-marker { width: 27px; height: 27px; display: grid; place-items: center; flex-shrink: 0; border: 1px solid var(--b-line); border-radius: 3px; font-size: 11px; color: var(--b-muted); }
+.berix-site .sv-current-step .sv-workflow-marker { border-color: var(--b-cherry); background: var(--b-cherry); color: var(--b-on-cherry); }
+.berix-site .sv-complete-step .sv-workflow-marker { border-color: var(--b-olive); color: var(--b-olive); background: var(--b-olive-soft); }
+.berix-site .sv-workflow-steps strong { display: block; padding-top: 2px; font-weight: 500; font-size: 13px; color: var(--b-ink); }
+.berix-site .sv-workflow-steps p { font-size: 12px; line-height: 1.6; color: var(--b-muted); margin-top: 5px; max-width: 360px; }
+.berix-site .sv-workflow-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 22px; margin-top: auto; border-top: 1px solid var(--b-line); }
+.berix-site .sv-workflow-controls p { font-size: 10px; color: var(--b-muted); }
+.berix-site .sv-workflow-controls button { display: inline-flex; align-items: center; gap: 14px; min-height: 38px; padding: 8px 12px; border: 1px solid var(--b-olive); border-radius: 3px; background: var(--b-olive-soft); color: var(--b-ink); font-size: 11px; white-space: nowrap; }
+.berix-site .sv-workflow-controls button:hover { background: var(--b-canvas); }
+
+@media (max-width: 1000px) {
+  .berix-site .sv-motion-layout { grid-template-columns: minmax(0, 1.3fr) minmax(200px, 1fr); gap: 24px; }
+  .berix-site .motion-caption { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .berix-site .sv-system-overview { padding-bottom: 0; }
+  .berix-site .sv-system-toolbar { padding-inline: 24px; }
+  .berix-site .sv-system-panel { padding-inline: 24px; }
+  .berix-site .sv-system-flow { gap: 42px; }
+  .berix-site .sv-stage:not(:last-child)::after { right: -29px; font-size: 20px; }
+  .berix-site .sv-mini-heading { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .berix-site .sv-workflow-controls { align-items: flex-start; flex-direction: column; gap: 10px; }
+}
+
+@media (max-width: 767px) {
+  .berix-site .sv-system-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .berix-site .sv-presentation-controls { align-self: flex-start; }
+  .berix-site .sv-motion-layout { grid-template-columns: minmax(0, 1fr); margin-top: 14px; }
+  .berix-site .sv-system-overview { display: none; }
+  .berix-site .sv-system { margin-top: 32px; min-height: 0; }
+  .berix-site .sv-system-toolbar { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 20px 12px; }
+  .berix-site .sv-example-label { font-size: 11px; }
+  .berix-site .sv-system-tabs { width: 100%; gap: 2px; }
+  .berix-site .sv-system-tabs button { flex: 1; min-height: 34px; padding: 6px 8px; font-size: 11px; }
+  .berix-site .sv-system-panel { padding: 16px 20px; }
+  .berix-site .sv-system-title { text-align: left; font-size: 13px; }
+  .berix-site .sv-system-flow { grid-template-columns: minmax(0, 1fr); gap: 26px; margin-top: 16px; }
+  .berix-site .sv-stage-label { display: none; }
+  .berix-site .sv-node-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .berix-site .sv-small-node { min-height: 44px; padding: 9px 8px; font-size: 11px; }
+  .berix-site .sv-stage-caption { display: none; }
+  .berix-site .sv-core-node { min-height: 72px; padding: 12px; align-items: flex-start; text-align: left; }
+  .berix-site .sv-code-symbol { display: none; }
+  .berix-site .sv-core-node strong { margin-top: 0; font-size: 14px; }
+  .berix-site .sv-core-node > span:last-child { font-size: 11px; margin-top: 4px; }
+  .berix-site .sv-stage:not(:last-child)::after { content: '↓'; left: 50%; top: auto; bottom: -26px; right: auto; transform: translateX(-50%); font-size: 18px; line-height: 24px; }
+  .berix-site .sv-system-note { text-align: left; font-size: 11px; margin-top: 18px; }
+  .berix-site .sv-knowledge, .berix-site .sv-workflow { padding: 20px; min-height: 0; }
+  .berix-site .sv-mini-heading { flex-direction: row; align-items: center; margin-bottom: 20px; font-size: 11px; }
+  .berix-site .sv-example-tag { font-size: 9px; }
+  .berix-site .sv-document-preview p { font-size: 12px; }
+  .berix-site .sv-workflow-controls { flex-direction: row; align-items: center; margin-top: 22px; padding-top: 18px; }
+  .berix-site .sv-workflow-controls p { max-width: 110px; font-size: 10px; }
+  .berix-site .sv-workflow-controls button { font-size: 10px; padding: 8px 10px; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .berix-site .sv-system-tabs button { transition: none; }
+}

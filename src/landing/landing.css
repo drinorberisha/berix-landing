@@ -1,0 +1,270 @@
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/fonts/instrument-sans-latin-variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* Architectural means alignment, hierarchy, and restraint, not physical imagery.
+   Source: BERIX_ENV/00_BRAND_FOUNDATION.md, visual direction, section 4.
+   Architectural sans, olive identity, walnut ink, cherry signature.
+   Design variance 6/10: varied section compositions within an ordered grid.
+   Motion 2/10: interaction feedback only. Density 3/10: spacious and scannable.
+   Admin and historical document styles retain their existing tokens. */
+.berix-site {
+  --b-canvas: #fcfaf6;
+  --b-stone: #f2efe7;
+  --b-olive-soft: #e8ead9;
+  --b-ink: #35291f;
+  --b-muted: #6d655b;
+  --b-line: #d9d4c8;
+  --b-olive: #566044;
+  --b-cherry: #9a3f46;
+  --b-cherry-hover: #7c3038;
+  --b-on-cherry: #fcfaf6;
+  --b-focus: #9a3f46;
+  --b-gutter: 48px;
+  color-scheme: light;
+  background: var(--b-canvas);
+  color: var(--b-ink);
+  font-family: 'Instrument Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-feature-settings: normal;
+  font-optical-sizing: auto;
+  line-height: 1.6;
+  min-height: 100dvh;
+  isolation: isolate;
+}
+
+.berix-site[data-theme='dark'] {
+  --b-canvas: #211e19;
+  --b-stone: #2a251f;
+  --b-olive-soft: #2e3528;
+  --b-ink: #f3eee4;
+  --b-muted: #bfb6a6;
+  --b-line: #4c4439;
+  --b-olive: #bdcba0;
+  --b-cherry: #e4a3a8;
+  --b-cherry-hover: #f0bdc1;
+  --b-on-cherry: #35232a;
+  --b-focus: #e4a3a8;
+  color-scheme: dark;
+}
+
+.berix-site *, .berix-site *::before, .berix-site *::after { box-sizing: border-box; }
+.berix-site ::selection { background: var(--b-cherry); color: var(--b-on-cherry); }
+.berix-site a { color: inherit; text-decoration: none; }
+.berix-site button, .berix-site select { font: inherit; }
+.berix-site button, .berix-site select, .berix-site summary { -webkit-tap-highlight-color: transparent; }
+.berix-site button, .berix-site summary { cursor: pointer; }
+.berix-site button { border: 0; }
+.berix-site h1, .berix-site h2, .berix-site h3, .berix-site p, .berix-site figure { margin: 0; }
+.berix-site h1, .berix-site h2, .berix-site h3 { font-weight: 500; text-wrap: balance; }
+.berix-site p { text-wrap: pretty; }
+.berix-site img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.berix-site svg { flex-shrink: 0; stroke-width: 1.6; }
+.berix-site :focus-visible { outline: 2px solid var(--b-focus); outline-offset: 6px; }
+.berix-site main:focus { outline: none; }
+.berix-site section[id], .berix-site footer[id], .berix-site #work { scroll-margin-top: 104px; }
+.berix-legacy-anchor { display: block; height: 0; scroll-margin-top: 104px; }
+.berix-container { width: min(calc(100% - var(--b-gutter) * 2), 1320px); margin-inline: auto; }
+.berix-site h2 { font-size: clamp(36px, 4.2vw, 58px); letter-spacing: -.045em; line-height: 1.1; }
+.berix-site h2 span { color: var(--b-olive); }
+.berix-skip-link { position: fixed; z-index: 5; top: 12px; left: 16px; padding: 12px 20px; border-radius: 4px; background: var(--b-ink); color: var(--b-canvas) !important; transform: translateY(-160%); }
+.berix-skip-link:focus { transform: translateY(0); }
+
+.berix-header { position: sticky; top: 0; z-index: 3; background: var(--b-canvas); border-bottom: 1px solid var(--b-line); }
+.berix-header-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.berix-brand-link { display: inline-flex; align-items: center; }
+.berix-wordmark { display: block; font-weight: 650; font-size: 30px; line-height: 1; letter-spacing: -.065em; }
+.berix-desktop-nav { display: flex; gap: 34px; margin-left: 100px; font-size: 14px; font-weight: 450; }
+.berix-desktop-nav a { position: relative; padding-block: 8px; }
+.berix-desktop-nav a::after { content: ''; position: absolute; bottom: 2px; left: 0; width: 100%; height: 1px; background: var(--b-cherry); transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
+.berix-desktop-nav a:hover::after { transform: scaleX(1); }
+.berix-nav-contact { display: inline-flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 500; white-space: nowrap; }
+.berix-nav-contact:hover { color: var(--b-cherry); }
+.berix-menu-button { display: none; }
+.berix-mobile-nav { display: none; }
+
+.berix-hero { padding-top: 46px; }
+.berix-eyebrow { display: flex; align-items: center; gap: 10px; color: var(--b-muted); font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+.berix-cherry-mark { display: inline-block; flex-shrink: 0; width: 7px; height: 7px; background: var(--b-cherry); }
+.berix-hero-copy { display: grid; grid-template-columns: 1.65fr 1fr; align-items: end; gap: 72px; margin-top: 22px; }
+.berix-hero h1 { font-size: clamp(62px, 6.8vw, 100px); font-weight: 450; line-height: 1.01; letter-spacing: -.06em; }
+.berix-hero h1 span { color: var(--b-olive); }
+.berix-hero-intro { max-width: 345px; padding-bottom: 7px; justify-self: end; }
+.berix-hero-intro p { font-size: 17px; color: var(--b-muted); line-height: 1.65; }
+.berix-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 48px; padding: 12px 18px; background: var(--b-cherry); color: var(--b-on-cherry) !important; border-radius: 4px; white-space: nowrap; font-size: 13px; font-weight: 500; transition: background 180ms ease, transform 180ms ease; }
+.berix-hero-intro .berix-button { margin-top: 25px; }
+.berix-button:hover { background: var(--b-cherry-hover); }
+.berix-button:active { transform: translateY(1px); }
+.berix-button svg { transition: transform 180ms ease; }
+.berix-button:hover svg { transform: translate(2px, -2px); }
+
+.berix-about { padding-block: 116px 120px; text-align: center; }
+.berix-about h2 { font-size: clamp(36px, 4.4vw, 62px); }
+.berix-about p { max-width: 630px; margin: 28px auto 0; font-size: 17px; line-height: 1.8; color: var(--b-muted); }
+
+.berix-expertise { background: var(--b-stone); padding-block: 96px 100px; }
+.berix-expertise-layout { display: grid; grid-template-columns: 1fr 1.42fr; gap: 100px; }
+.berix-expertise-heading h2 { font-size: clamp(32px, 3.2vw, 44px); }
+.berix-expertise-heading p { max-width: 285px; margin-top: 24px; font-size: 15px; color: var(--b-muted); }
+.berix-text-link { display: inline-flex; align-items: center; gap: 20px; font-size: 13px; font-weight: 500; }
+.berix-expertise-heading .berix-text-link { margin-top: 36px; }
+.berix-text-link:hover { color: var(--b-cherry); }
+.berix-expertise-item { border-top: 1px solid var(--b-line); }
+.berix-expertise-item:last-child { border-bottom: 1px solid var(--b-line); }
+.berix-expertise-item summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 0; list-style: none; }
+.berix-expertise-item summary::-webkit-details-marker { display: none; }
+.berix-expertise-item h3 { font-size: 25px; letter-spacing: -.035em; line-height: 1.25; }
+.berix-service-summary { display: block; margin-top: 8px; font-size: 13px; font-weight: 400; letter-spacing: normal; line-height: 1.6; color: var(--b-muted); }
+.berix-disclosure-icon { display: grid; width: 32px; height: 32px; flex-shrink: 0; place-items: center; color: var(--b-muted); }
+.berix-minus { display: none; }
+.berix-expertise-item[open] .berix-plus { display: none; }
+.berix-expertise-item[open] .berix-minus { display: block; }
+.berix-expertise-item[open] h3, .berix-expertise-item[open] .berix-disclosure-icon { color: var(--b-cherry); }
+.berix-expertise-item summary:hover h3 { color: var(--b-cherry); }
+.berix-expertise-detail { padding: 0 50px 30px 0; }
+.berix-expertise-detail p { font-size: 14px; line-height: 1.8; color: var(--b-muted); max-width: 520px; }
+.berix-expertise-detail ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; list-style: none; margin: 22px 0 0; padding: 0; }
+.berix-expertise-detail li { font-size: 11px; color: var(--b-ink); display: flex; align-items: center; gap: 9px; }
+.berix-expertise-detail li::before { content: ''; width: 3px; height: 3px; background: var(--b-olive); flex-shrink: 0; }
+
+.berix-applications { padding-block: 112px 120px; }
+.berix-applications-heading h2 { margin-top: 22px; }
+.berix-applications-heading > p:last-child { color: var(--b-muted); font-size: 15px; max-width: 440px; margin-top: 24px; }
+.berix-applications-grid { display: grid; grid-template-columns: 1.12fr 1fr; gap: 64px; margin-top: 52px; align-items: start; }
+.berix-application-offset { padding-top: 104px; }
+.berix-application-copy { padding-top: 24px; }
+.berix-category { color: var(--b-muted); font-size: 11px; }
+.berix-application h3 { margin-top: 8px; font-size: 29px; line-height: 1.2; letter-spacing: -.035em; }
+.berix-application p { max-width: 430px; margin-top: 14px; font-size: 14px; line-height: 1.8; color: var(--b-muted); }
+
+.berix-approach { padding-block: 88px 68px; background: var(--b-olive-soft); }
+.berix-approach h2 { font-size: clamp(36px, 4vw, 54px); }
+.berix-approach-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; margin-top: 58px; }
+.berix-approach-rule { height: 1px; width: 100%; background: var(--b-olive); opacity: .4; position: relative; }
+.berix-approach-rule::before { content: ''; position: absolute; width: 6px; height: 6px; top: -2.5px; left: 0; background: var(--b-olive); }
+.berix-approach h3 { font-size: 22px; letter-spacing: -.03em; margin-top: 24px; }
+.berix-approach-grid p { margin-top: 14px; color: var(--b-muted); font-size: 13px; line-height: 1.8; max-width: 245px; }
+.berix-approach-note { margin-top: 56px !important; border-top: 1px solid var(--b-line); padding-top: 24px; color: var(--b-olive); font-size: 12px; }
+
+.berix-contact { padding-top: 100px; }
+.berix-contact-top { display: flex; gap: 12px; align-items: center; color: var(--b-muted); font-size: 13px; }
+.berix-contact-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-top: 36px; }
+.berix-contact h2 { font-size: clamp(56px, 7.2vw, 100px); letter-spacing: -.06em; line-height: 1.04; font-weight: 450; }
+.berix-contact h2 span { color: var(--b-cherry); }
+.berix-contact-arrow { display: grid; place-items: center; width: 104px; height: 104px; border: 1px solid var(--b-line); border-radius: 4px; margin-bottom: 10px; color: var(--b-cherry) !important; flex-shrink: 0; transition: background 180ms ease, color 180ms ease; }
+.berix-contact-arrow svg { width: 48px; height: 48px; transition: transform 180ms ease; }
+.berix-contact-arrow:hover { background: var(--b-cherry); color: var(--b-on-cherry) !important; }
+.berix-contact-arrow:hover svg { transform: translate(3px, -3px); }
+.berix-contact-details { margin-top: 36px; display: flex; gap: 32px; align-items: center; }
+.berix-email { font-size: clamp(18px, 2vw, 26px); letter-spacing: -.025em; }
+.berix-email:hover { color: var(--b-cherry); }
+.berix-copy-wrapper { position: relative; }
+.berix-copy-button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; color: var(--b-muted); background: transparent; font-size: 12px !important; }
+.berix-copy-button:hover { color: var(--b-cherry); }
+.berix-copy-status { display: block; position: absolute; top: 100%; left: 0; width: 220px; color: var(--b-muted); font-size: 11px; }
+.berix-footer-bottom { display: flex; align-items: center; gap: 32px; border-top: 1px solid var(--b-line); margin-top: 96px; padding-block: 30px; }
+.berix-wordmark-footer { font-size: 25px; }
+.berix-footer-bottom > p { color: var(--b-muted); font-size: 11px; margin-right: auto; }
+.berix-appearance { display: inline-flex; align-items: center; gap: 10px; color: var(--b-muted); font-size: 11px; }
+.berix-appearance select { color: var(--b-ink); background: var(--b-canvas); border: 1px solid var(--b-line); border-radius: 4px; min-height: 34px; padding: 4px 24px 4px 8px; cursor: pointer; }
+.berix-back-top { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; }
+.berix-back-top:hover { color: var(--b-cherry); }
+
+@media (min-width: 1600px) {
+  .berix-hero { padding-top: 58px; }
+}
+
+@media (max-width: 1100px) {
+  .berix-site { --b-gutter: 32px; }
+  .berix-desktop-nav { margin-left: 24px; gap: 24px; }
+  .berix-hero-copy { grid-template-columns: 1.55fr 1fr; gap: 40px; }
+  .berix-hero h1 { font-size: clamp(57px, 6.8vw, 78px); }
+  .berix-hero-intro p { font-size: 15px; }
+  .berix-expertise-layout { gap: 60px; grid-template-columns: 1fr 1.4fr; }
+  .berix-applications-grid { gap: 40px; }
+  .berix-approach-grid { gap: 26px; }
+  .berix-footer-bottom { gap: 24px; }
+}
+
+@media (max-width: 767px) {
+  .berix-site { --b-gutter: 24px; }
+  .berix-header-inner { height: 66px; }
+  .berix-wordmark { font-size: 28px; }
+  .berix-desktop-nav, .berix-nav-contact { display: none; }
+  .berix-menu-button { display: inline-flex; align-items: center; gap: 12px; color: var(--b-ink); background: transparent; padding: 10px 0 10px 12px; font-size: 13px !important; }
+  .berix-mobile-nav:not([hidden]) { display: grid; padding: 4px var(--b-gutter) 24px; border-top: 1px solid var(--b-line); }
+  .berix-mobile-nav a { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--b-line); font-size: 18px; }
+  .berix-mobile-nav a:last-child { color: var(--b-cherry); }
+  .berix-hero { padding-top: 32px; }
+  .berix-eyebrow { font-size: 10px; letter-spacing: .08em; }
+  .berix-hero-copy { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 26px; }
+  .berix-hero h1 { font-size: clamp(39px, 12.3vw, 68px); letter-spacing: -.055em; line-height: 1.04; }
+  .berix-hero-intro { max-width: 420px; justify-self: start; padding-bottom: 0; }
+  .berix-hero-intro p { font-size: 15px; line-height: 1.65; }
+  .berix-hero-intro .berix-button { margin-top: 20px; }
+  .berix-about { padding-block: 76px 80px; text-align: left; }
+  .berix-desktop-break { display: none; }
+  .berix-about h2 { font-size: clamp(34px, 7.2vw, 48px); }
+  .berix-about p { margin-top: 24px; font-size: 15px; }
+  .berix-expertise { padding-block: 64px; }
+  .berix-expertise-layout { grid-template-columns: minmax(0, 1fr); gap: 42px; }
+  .berix-expertise-heading h2 { font-size: 36px; }
+  .berix-expertise-heading p { max-width: 340px; margin-top: 20px; }
+  .berix-expertise-heading .berix-text-link { margin-top: 22px; }
+  .berix-expertise-item summary { padding-block: 24px; gap: 12px; }
+  .berix-expertise-item h3 { font-size: 24px; }
+  .berix-expertise-detail { padding-right: 0; }
+  .berix-expertise-detail p { font-size: 14px; }
+  .berix-expertise-detail ul { gap: 9px 16px; }
+  .berix-service-summary { font-size: 12px; }
+  .berix-applications { padding-block: 76px 80px; }
+  .berix-applications-heading h2 { font-size: clamp(34px, 7.2vw, 48px); margin-top: 18px; }
+  .berix-applications-heading > p:last-child { margin-top: 20px; font-size: 14px; }
+  .berix-applications-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; margin-top: 34px; }
+  .berix-application-offset { padding-top: 0; }
+  .berix-application-copy { padding-top: 18px; }
+  .berix-application h3 { font-size: 27px; }
+  .berix-application p { margin-top: 12px; }
+  .berix-approach { padding-block: 64px 40px; }
+  .berix-approach h2 { font-size: 36px; }
+  .berix-approach-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 40px; }
+  .berix-approach h3 { margin-top: 16px; font-size: 23px; }
+  .berix-approach-grid p { margin-top: 8px; max-width: 430px; font-size: 14px; }
+  .berix-approach-note { margin-top: 36px !important; font-size: 11px; }
+  .berix-contact { padding-top: 68px; }
+  .berix-contact-top { font-size: 11px; align-items: flex-start; gap: 10px; }
+  .berix-contact-top .berix-cherry-mark { margin-top: 5px; }
+  .berix-contact-heading { margin-top: 30px; align-items: flex-start; gap: 16px; }
+  .berix-contact h2 { font-size: clamp(43px, 8.4vw, 64px); letter-spacing: -.05em; }
+  .berix-contact-arrow { width: 48px; height: 48px; margin-top: 5px; margin-bottom: 0; }
+  .berix-contact-arrow svg { width: 26px; height: 26px; }
+  .berix-contact-details { margin-top: 26px; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .berix-email { font-size: 21px; }
+  .berix-copy-status { width: 260px; }
+  .berix-footer-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 16px; margin-top: 64px; padding-block: 28px; }
+  .berix-footer-bottom > p { grid-column: 1 / -1; grid-row: 2; margin-right: 0; font-size: 10px; }
+  .berix-wordmark-footer { font-size: 25px; }
+  .berix-appearance { justify-self: end; gap: 8px; font-size: 10px; }
+  .berix-appearance select { min-height: 34px; }
+  .berix-back-top { grid-column: 2; grid-row: 2; justify-self: end; font-size: 10px; }
+}
+
+@media (max-width: 359px) {
+  .berix-site { --b-gutter: 18px; }
+  .berix-contact h2 { font-size: 38px; }
+  .berix-contact-arrow { width: 40px; height: 40px; }
+  .berix-expertise-item h3 { font-size: 22px; }
+  .berix-footer-bottom { column-gap: 8px; }
+  .berix-footer-bottom > p { font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.berix-site) { scroll-behavior: auto; }
+  .berix-site *, .berix-site *::before, .berix-site *::after { animation: none !important; transition: none !important; }
+  .berix-button:hover svg, .berix-contact-arrow:hover svg { transform: none; }
+}
+.berix-site .berix-work-loading { min-height: 700px; margin-top: 42px; display: grid; place-items: center; background: var(--b-stone); color: var(--b-muted); font-size: 12px; }
